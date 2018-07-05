@@ -27,10 +27,19 @@ app.get("/users", function (request, response){
     response.render('users', {users: users_array});
 })
 app.get("/dogs",function (request,response){
-    response.render("dogs")
+    response.render("dogs");
 })
 app.get("/pandas", function (request,response){
-    response.render("pandas")
+    response.render("pandas");
+})
+app.get("/pandas/:whichPanda", function (request,response){
+    console.log(request.params);
+    var pandas_array = [
+        {number:1,name: "Fred",age: "13",sleep:["rock","tree"],src:"/image/redpanda1.jpg"},
+        {number:2,name: "Ricky",age: "3",sleep:["reeds","stream"],src:"/image/redpanda2.jpg"},
+        {number:3,name: "The Goose",age: "9",sleep:["bush","hole"],src:"/image/redpanda3.jpg"}
+    ]
+    response.render("details",{panda:pandas_array[request.params.whichPanda]});
 })
 
 // two underscores before dirname
