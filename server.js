@@ -80,6 +80,26 @@ app.post("/reset",function (req,res){
     req.session.count = 0;
     res.redirect('/count');
 })
+app.post("/survey",function(req,res){
+    req.session.name = req.body.name;
+    req.session.loc = req.body.location;
+    req.session.lang = req.body.language;
+    req.session.comment = req.body.comment;
+    res.redirect("/results");
+})
+app.get("/results",function(req,res){
+    var langMap = {1:"Python",2:"Java",3:"JavaScript"};
+    console.log(langMap);
+    var locMap = {1:"Mountain View",2:"Seattle",3:"Burbank"};
+    console.log(locMap);
+    var result = {name:req.session.name,
+                  location:locMap[req.session.loc],
+                  language:langMap[req.session.lang],
+                  comment:req.session.comment
+                  }
+    console.log(result);
+    res.render("survey.ejs",{results:result})
+})
 
 // two underscores before dirname
 // try printing out __dirname using console.log to see what it is and why we use it

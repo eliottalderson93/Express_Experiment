@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Counter</title>
+    <title>Dojo Survey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/bulma.css" />
 </head>
@@ -13,7 +13,7 @@
     <section class="hero">
         <div class="hero-body">
             <div class="container">
-                <p class="title">Counter</p>
+                <p class="title">Dojo Survey</p>
             </div>
         </div>
     </section>
@@ -21,24 +21,47 @@
         <div class="container">
             <div class="levels">
                 <div class="level">
-                    <p><%= count %> times</p>
-                </div>
-                <div class="level">
-                    <form action="/count" method="post">
-                        <button>Count!</button>
-                    </form>
-                </div>
-                <div class="level">
-                    <form action="/count/two" method="post">
-                        <button>Count Two!</button>
-                    </form>
-                </div>
-                <div class="level">
-                    <form action="/reset" method="post">
-                        <button>Reset!</button>
-                    </form>
-                </div>
+                    <div class="level-left">
+                        <form action="/survey" method="post">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name">
+                    </div>
 
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <label for="location" class="level-left">Location:</label>
+                        <select name="location" class="level-left">
+                            <option value="1">Mountain View
+                            </option>
+                            <option value="2">Seattle</option>
+                            <option value="3">Burbank</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <label for="language" class="level-left">Language:</label>
+                        <select name="language" class="level-left">
+                            <option value="1">Python
+                            </option>
+                            <option value="2">Java</option>
+                            <option value="3">JavaScript</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <label for="comment" class="level-left">Comment:</label>
+                        <input type="textarea" name="comment" class="level-left">
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-right">
+                        <button class="level-right">Submit</button>
+                    </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
